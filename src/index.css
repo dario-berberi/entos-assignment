@@ -1,13 +1,113 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+    margin: 0;
+    padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App{
+    width: 90%;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header-wrap{
+    width: 100%;
+    border-bottom: 2px dotted lightslategray;
+}
+
+.header-title{
+    margin-top: 20px;
+    text-align: center;
+}
+.header-intro{
+    margin: 15px auto;
+    width: 80%;
+    color: lightslategray;
+    text-align: center;
+}
+
+.instructions-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.instructions-intro{
+    color: rgb(3, 144, 191);;
+}
+.instructions-list{
+    margin: 10px 15px;
+}
+.searchForm-wrap{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.select-label{
+    width: 45%;
+    font-weight: bold;
+}
+
+.basic-multi-select{
+    width: 100%;
+}
+
+.results-wrap{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.result-button{
+    width: 45%;
+    font-size: 1.1em;
+    text-align: center;
+    background-color: rgb(3, 144, 191);
+    color: whitesmoke;
+    padding: 5px;
+    margin: 20px auto;
+    border-radius: 5px;
+    border: 1px solid grey;
+    grid-column: 1/-1;
+}
+
+.result-header{
+    font-size: 1.5em;
+    color: rgb(3, 144, 191);
+    margin: 10px 0;
+}
+
+.result-companies-filter{
+    padding-left: 20px;
+}
+
+.match{
+    font-size: 1.1em;
+}
+
+.match-company{
+    color: red;
+    font-weight: bold;
+    padding: 5px 0;
+}
+
+.match-total{
+    font-weight: bold;
+    font-style: italic;
+    padding: 5px 0;
+}
+
+.match-area-list{
+    padding: 5px 20px;
+}
+
+@media (max-width: 718px) {
+    .searchForm-wrap{
+        flex-direction: column;
+        align-items: center;
+    }
+    .select-label{
+        width: 90%;
+    }
 }
