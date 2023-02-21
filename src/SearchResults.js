@@ -1,9 +1,9 @@
 import CompMatch from './CompMatch';
 
-function SearchResults({ countries, areas, company_areas, shipments, companies, matchResult, setResult }) {
+function SearchResults({ selCountries, areasJSON, selAreas, company_areasJSON, shipmentsJSON, companiesJSON, matchResult, setResult }) {
   //**returns an array with the ids and names of the companies that operate in the selected countries
-  const selectedCompIdName = companies
-    .filter((item) => countries.some((country) => country.value === item.country))
+  const selectedCompIdName = companiesJSON
+    .filter((item) => selCountries.some((country) => country.value === item.country))
     .map((item) => {
       return {
         companyId: item.companyId,
@@ -12,10 +12,10 @@ function SearchResults({ countries, areas, company_areas, shipments, companies, 
     });
 
   //**array of the selected areas id
-  const selectedAreaId = areas.map((item) => item.value);
+  const selectedAreaId = selAreas.map((item) => item.value);
 
   //**total shipments array of objects that contains all the shipments for the selected companies and areas
-  const totalShip = shipments.filter(
+  const totalShip = shipmentsJSON.filter(
     (ship) =>
       selectedAreaId.includes(ship.areaId) && selectedCompIdName.some((company) => company.companyId === ship.companyId)
   );
@@ -24,7 +24,7 @@ function SearchResults({ countries, areas, company_areas, shipments, companies, 
   const copmaniesWithArea = selectedCompIdName.map((company) => {
     const areasIdArr = [];
     //search through the company_areas data to get as a result only areas where companies are active
-    company_areas.forEach((area) => {
+    company_areasJSON.forEach((area) => {
       if (
         area.companyId === company.companyId &&
         selectedAreaId.includes(area.areaId) &&
@@ -101,7 +101,7 @@ function SearchResults({ countries, areas, company_areas, shipments, companies, 
     //map the shipments per area array into a list for easier display
     const areaAndShip = item.shipPerArea.map((ship) => (
       <li key={ship.areaId}>
-        In area code {ship.areaId} has completed {ship.shipAreaTotal} shipments.
+        For {areasJSON.filter(a => a.areaId === ship.areaId).map(a => a.state)} {ship.shipAreaTotal} completed shipments.
       </li>
     ));
     return (

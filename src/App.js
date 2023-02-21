@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Header from './Header';
-import companies from './assets/companies.json';
-import areas from './assets/areas.json';
-import companyAreas from './assets/company_area.json';
-import allShipments from './assets/shipments.json';
+import Hero from './Hero';
+import COMPANIES from './assets/companies.json';
+import AREAS from './assets/areas.json';
+import COMPANY_AREAS from './assets/company_area.json';
+import ALL_SHIPMENTS from './assets/shipments.json';
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 
@@ -16,22 +16,23 @@ function App() {
   const [matchedComp, setMatchedComp] = useState([]);
   return (
     <div className="App">
-      <Header />
+      <Hero />
       {/**pass companies and areas from the respective json files as props to populate the select drop down
        * pass the set functions as props to allow state change from the search form
        */}
       <SearchForm
-        companies={companies}
-        areas={areas}
+        companiesJSON={COMPANIES}
+        areasJSON={AREAS}
         handleCountries={setSelectedCountries}
         handleAreas={setSelectedAreas}
       />
       <SearchResults
-        countries={selectedCountries}
-        areas={selectedAreas}
-        companies={companies}
-        company_areas={companyAreas}
-        shipments={allShipments}
+        selCountries={selectedCountries}
+        selAreas={selectedAreas}
+        areasJSON = {AREAS}
+        companiesJSON={COMPANIES}
+        company_areasJSON={COMPANY_AREAS}
+        shipmentsJSON={ALL_SHIPMENTS}
         matchResult={matchedComp}
         setResult={setMatchedComp}
       />

@@ -1,69 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-image: url('../public/body_bg.jpg');
+    background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 
 .App{
-    width: 90%;
     margin: 0 auto;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
-.header-wrap{
-    width: 100%;
-    border-bottom: 2px dotted lightslategray;
+
+.hero{
+   height: 100vh;
+    background-image: url('../public/header_bg.jpg') ;
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 100px;
+  color: white;
+  text-align: center;
+  
 }
 
-.header-title{
-    margin-top: 20px;
-    text-align: center;
+.hero-title{
+    font-size: clamp(30px, 7vw, 3em);
+    padding: 30px;
 }
-.header-intro{
-    margin: 15px auto;
-    width: 80%;
-    color: lightslategray;
-    text-align: center;
+
+.hero-subtitle{
+    font-size: clamp(20px, 5vw, 2em);
+    padding: 0 30px;
+    color: #0054B5;
+    margin-bottom: 30px;
+}
+
+.hero-button{
+    font-size: clamp(20px, 3.5vw, 1.8em);
+    padding: 10px;
+    border: 3px solid white;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
 }
 
 .instructions-wrap{
+    width: 90%;
+    margin: 10px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .instructions-intro{
-    color: rgb(3, 144, 191);;
+    font-size: 1.5em;
+    margin: 10px;
+    width: 80%;
+    color: #0054B5;
+    text-align: center;
 }
+
 .instructions-list{
-    margin: 10px 15px;
-}
-.searchForm-wrap{
-    width: 100%;
-    margin-top: 20px;
+    font-size: 1.2em;
+    margin: 5px 15px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    text-align: left;
+}
+
+.searchForm-wrap{
+    width: 90%;
+    margin: 20px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.select-wrap{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .select-label{
     width: 45%;
-    font-weight: bold;
+    font-size: 1.1em;
 }
 
 .basic-multi-select{
     width: 100%;
+    color: black;
 }
 
 .results-wrap{
-    width: 100%;
+    width: 90%;
+    min-height: 35vh;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
 }
 
 .result-button{
     width: 45%;
-    font-size: 1.1em;
+    font-size: 1.2em;
     text-align: center;
-    background-color: rgb(3, 144, 191);
+    background-color:#0054B5;;
     color: whitesmoke;
     padding: 5px;
     margin: 20px auto;
@@ -74,7 +123,6 @@
 
 .result-header{
     font-size: 1.5em;
-    color: rgb(3, 144, 191);
     margin: 10px 0;
 }
 
@@ -83,11 +131,11 @@
 }
 
 .match{
-    font-size: 1.1em;
+    font-size: 1.2em;
 }
 
 .match-company{
-    color: red;
+    color: #36AAFE;
     font-weight: bold;
     padding: 5px 0;
 }
@@ -103,11 +151,22 @@
 }
 
 @media (max-width: 718px) {
-    .searchForm-wrap{
+    
+    .header-title-container{
+        padding: 20px;
+    }
+
+    .select-wrap{
         flex-direction: column;
         align-items: center;
     }
     .select-label{
         width: 90%;
+    }
+}
+
+@media (max-width: 285px) {
+    .hero{
+        padding-top: 25px;
     }
 }

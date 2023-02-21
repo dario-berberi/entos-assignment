@@ -1,11 +1,11 @@
 import React from 'react';
 import Select from 'react-select';
 //deconstruct props for easier access
-function SearchForm({ companies, areas, handleCountries, handleAreas }) {
+function SearchForm({ companiesJSON, areasJSON, handleCountries, handleAreas }) {
   //populate the arr with ALL as the first option
   const countriesArr = [{ value: 'ALL', label: 'SELECT ALL' }];
   //loop through the companies array to display the available countries on the drop down
-  companies.forEach((item) => {
+  companiesJSON.forEach((item) => {
     //check if the country is already in the array of countries for the drop down
     if (!countriesArr.some((country) => country.value === item.country)) {
       //add the new country to the drop down in the value and label structure
@@ -14,8 +14,8 @@ function SearchForm({ companies, areas, handleCountries, handleAreas }) {
   });
   //use the same logic for the areas available here we dont have to check if it already exists
   const areasArr = [{ value: 'ALL', label: 'SELECT ALL' }];
-  areas.forEach((item) => {
-    areasArr.push({ value: item.areaId, label: item.state });
+  areasJSON.forEach((item) => {
+    areasArr.push({ value: item.areaId, label: item.state});
   });
 
   //handle change on the country select drop down
@@ -40,6 +40,17 @@ function SearchForm({ companies, areas, handleCountries, handleAreas }) {
 
   return (
     <div className="searchForm-wrap">
+      <div className="instructions-wrap" id="intructions">
+        <h3 className="instructions-intro">
+          Follow the steps below and begin your scouting process
+          </h3>
+          <ol className="instructions-list">
+            <li>Choose which country you would like to operate</li>
+            <li>Choose which area you ship to</li>
+            <li>Click Show Results to recieve the results</li>
+        </ol>
+      </div>
+      <div className='select-wrap'>
       <label className="select-label">
         {' '}
         Select Countries
@@ -64,6 +75,8 @@ function SearchForm({ companies, areas, handleCountries, handleAreas }) {
           onChange={handleChangeArea}
         />
       </label>
+      </div>
+      
     </div>
   );
 }
