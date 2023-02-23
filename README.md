@@ -37,6 +37,4 @@ Import the default export and render in your component:
  ### check out [react-select documentation](https://react-select.com/home)
 
 ## Possible upgrades and optimization
-    Access area names directly from the state and display them on the results
-
     Expand the top companies to gain more detailed information 
